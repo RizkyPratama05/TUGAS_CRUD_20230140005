@@ -1,4 +1,29 @@
 package com.example.ktp.entity;
 
+import jakarta.persistence.*;
+import lombok.Data;
+import java.time.LocalDate;
+
+@Entity
+@Table(name = "KTP")
+@Data
 public class Ktp {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(name = "nomor_ktp", unique = true, nullable = false)
+    private String nomorKtp;
+
+    @Column(name = "nama_lengkap", nullable = false)
+    private String namaLengkap;
+
+    @Column(name = "alamat", nullable = false)
+    private String alamat;
+
+    @Column(name = "tanggal_lahir", nullable = false)
+    private LocalDate tanggalLahir;
+
+    @Column(name = "jenis_kelamin", nullable = false)
+    private String jenisKelamin;
 }
